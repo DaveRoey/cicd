@@ -18,10 +18,6 @@ jobs:
 
     - name: Build
       run: CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v ./...
-
-    - name: build image
-      run: |
-        docker build -t cicd:v1 .
     - name: Build Docker Image
       id: buildAndPushImage
       uses: risfeng/docker-image-build-push-action@v1.0
