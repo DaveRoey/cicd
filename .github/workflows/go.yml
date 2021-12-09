@@ -29,3 +29,9 @@ jobs:
         password: lzt13079120036
         image_version: 'v1.0'
         docker_file: '.'
+    - name: verify deployment
+      uses: steebchen/kubectl@v2.0.0
+      with:
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        version: v1.21.0 # specify kubectl binary version explicitly
+        command: rollout status deployment/my-app
