@@ -20,4 +20,5 @@ spec:
           image: "registry.cn-hangzhou.aliyuncs.com/daveroey/cicd:v1.0"
           ports:
             - name: http
+            - containerPort: 1323
           imagePullPolicy: Always
