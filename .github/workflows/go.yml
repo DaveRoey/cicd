@@ -25,13 +25,13 @@ jobs:
         registry_url: 'registry.cn-hangzhou.aliyuncs.com'
         namespaces: 'daveroey'
         repository_name: 'cicd'
-        user_name: lztaini123
-        password: lzt13079120036
+        user_name: ${{ secrets.REPOSITORY_NAME }}
+        password: ${{ secrets.REPOSITORY_PASSWORD }}
         image_version: 'v1.0'
         docker_file: '.'
-    - name: verify deployment
+    - name: deployment
       uses: steebchen/kubectl@v2.0.0
       with:
         config: ${{ secrets.KUBE_CONFIG_DATA }}
         version: v1.21.0 # specify kubectl binary version explicitly
-        command: apply -f deploy.yaml
+        command: rollout restart deployment test
