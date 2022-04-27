@@ -30,7 +30,7 @@ jobs:
         image_version: 'v1.0'
         docker_file: '.'
     - name: Deploy to Docker swarm
-      uses: wshihadeh/docker-deployment-action@v1
+      uses: wshihadeh/docker-deployment-action@v2
       with:
         remote_docker_host: root@k9s.fun
         remote_docker_port: 10022
