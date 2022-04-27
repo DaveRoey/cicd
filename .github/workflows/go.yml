@@ -31,13 +31,13 @@ jobs:
         docker_file: '.'
     - name: scp stack
       uses: garygrossgarten/github-action-scp@release
-        with:
-          local: docker-stack.yaml
-          remote: /data/stack/docker-stack.yaml
-          port: ${{ secrets.PORT }}
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASS }}
+      with:
+        local: docker-stack.yaml
+        remote: /data/stack/docker-stack.yaml
+        port: ${{ secrets.PORT }}
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASS }}
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
