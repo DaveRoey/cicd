@@ -1,0 +1,19 @@
+
+version: "3"
+services:
+  nginx:
+    image: docker.io/nginx
+    ports:
+      - 80:80
+    networks:
+      - proxy
+    deploy:
+      mode: replicated
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
