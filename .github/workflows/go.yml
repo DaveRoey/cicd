@@ -42,4 +42,3 @@ jobs:
         deploy_path: /data/my-deployment
         stack_file_name: docker-stack.yaml
         keep_files: 5
-        args: my_applicaion
