@@ -29,17 +29,22 @@ jobs:
         password: ${{ secrets.REPOSITORY_PASSWORD }}
         image_version: 'v1.0'
         docker_file: '.'
-    - name: Deploy to Docker swarm
-      uses: Autom3/docker-deployment-action@3.0.1
+    - name: scp stack
+      uses: garygrossgarten/github-action-scp@release
+        with:
+          local: docker-stack.yaml
+          remote: /data/stack/docker-stack.yaml
+          port: ${{ secrets.PORT }}
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASS }}
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
       with:
-        remote_docker_host: root@k9s.fun
-        remote_docker_port: 10022
-        ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-        ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-        deployment_mode: docker-swarm
-        copy_stack_file: true
-        deploy_path: /data/my-deployment
-        stack_file_name: docker-stack.yaml
-        keep_files: 5
-        args: my_applicaion
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASS }}
+        port: ${{ secrets.PORT }}
+        script: |-
+           docker stack deploy -c /data/stack/docker-stack.yaml go
 
