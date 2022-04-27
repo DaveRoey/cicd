@@ -6,7 +6,7 @@ services:
     ports:
       - 1323:1323
     networks:
-      - proxy
+      - my-net
     deploy:
       mode: replicated
       replicas: 2
