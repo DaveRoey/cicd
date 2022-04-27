@@ -4,7 +4,7 @@ services:
   nginx:
     image: registry.cn-hangzhou.aliyuncs.com/daveroey/cicd:v1.0
     ports:
-      - 80:80
+      - 1323:1323
     networks:
       - proxy
     deploy:
