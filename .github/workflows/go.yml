@@ -30,7 +30,7 @@ jobs:
         image_version: 'v1.0'
         docker_file: '.'
     - name: Deploy to Docker swarm
-      uses: Autom3/docker-deployment-action@v3.0.1
+      uses: Autom3/docker-deployment-action@3.0.1
       with:
         remote_docker_host: root@k9s.fun
         remote_docker_port: 10022
