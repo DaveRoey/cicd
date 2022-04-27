@@ -30,11 +30,10 @@ jobs:
         image_version: 'v1.0'
         docker_file: '.'
     - name: Deploy to Docker swarm
-      uses: wshihadeh/docker-deployment-action@v2
+      uses: Autom3/docker-deployment-action@v3.0.1
       with:
         remote_docker_host: root@k9s.fun
         remote_docker_port: 10022
-        pull_images_first: true
         ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
         ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
         deployment_mode: docker-swarm
