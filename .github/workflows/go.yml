@@ -34,6 +34,7 @@ jobs:
       with:
         remote_docker_host: root@k9s.fun
         remote_docker_port: 10022
+        pull_images_first: true
         ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
         ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
         deployment_mode: docker-swarm
