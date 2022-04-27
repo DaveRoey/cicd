@@ -17,3 +17,5 @@ services:
         condition: on-failure
         delay: 5s
         max_attempts: 3
+networks:
+  my-net:
