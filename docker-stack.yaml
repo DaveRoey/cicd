@@ -2,7 +2,7 @@
 version: "3"
 services:
   nginx:
-    image: docker.io/nginx
+    image: registry.cn-hangzhou.aliyuncs.com/daveroey/cicd:v1.0
     ports:
       - 80:80
     networks:
