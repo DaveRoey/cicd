@@ -46,5 +46,5 @@ jobs:
         password: ${{ secrets.SERVER_PASS }}
         port: ${{ secrets.PORT }}
         script: |-
-           docker stack deploy -c /data/stack/docker-stack.yaml --with-registry-auth --resolve-image never go
+           docker service update --image registry.cn-hangzhou.aliyuncs.com/daveroey/cicd:v1.0 --force --no-resolve-image --with-registry-auth  go_nginx
 
